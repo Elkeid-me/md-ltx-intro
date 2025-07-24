@@ -1,0 +1,914 @@
+\PassOptionsToPackage{no-math}{fontspec}
+\documentclass[a4paper,fontset=none]{ctexart}
+\usepackage{float,amsmath,amssymb,enumitem,graphicx,minted,tabularray,tcolorbox,tikz}
+\usepackage[mark,pipeTables,strikeThrough,texMathDollars,taskLists]{markdown}
+\usepackage[left=3.17cm,right=3.17cm,top=2.54cm,bottom=2.54cm]{geometry}
+\UseTblrLibrary{diagbox}
+\setlist {itemsep = 0pt}
+\markdownSetup {
+    renderers = {
+        halfTickedBox = {\fontspec{Segoe UI Emoji}\small ⌛},
+        tickedBox     = {
+            \begin{tikzpicture} [
+                    y=1pt, x=1pt,
+                    yscale=0.75,
+                    xscale=0.75,
+                    every node/.append style={scale=0.75},
+                    inner sep=0pt,
+                    outer sep=0pt
+                ]
+                \path[fill,shift={(0,2.8502932251968507)},scale=0.3]
+                    (582.7, -341.3) ..
+                    controls (581.7, -341.3) and (580.6, -341.6) .. (579.7, -342.1) ..
+                    controls (578.8, -342.7) and (578.1, -343.4) .. (577.6, -344.3) ..
+                    controls (577.0, -345.2) and (576.8, -346.2) .. (576.8, -347.3) --
+                    (576.8, -371.2) ..
+                    controls (576.8, -372.3) and (577.0, -373.3) .. (577.6, -374.2) ..
+                    controls (578.1, -375.1) and (578.8, -375.9) .. (579.7, -376.4) ..
+                    controls (580.6, -376.9) and (581.7, -377.2) .. (582.7, -377.2) --
+                    (606.7, -377.2) ..
+                    controls (607.8, -377.2) and (608.8, -376.9) .. (609.7, -376.4) ..
+                    controls (610.6, -375.9) and (611.3, -375.1) .. (611.9, -374.2) ..
+                    controls (612.4, -373.3) and (612.7, -372.3) .. (612.7, -371.2) --
+                    (612.7, -347.3) ..
+                    controls (612.7, -346.2) and (612.4, -345.2) .. (611.9, -344.3) ..
+                    controls (611.3, -343.4) and (610.6, -342.7) .. (609.7, -342.1) ..
+                    controls (608.8, -341.6) and (607.8, -341.3) ..
+                    (606.7, -341.3) --
+                    cycle
+                    (582.7, -344.3) --
+                    (606.7, -344.3) ..
+                    controls (607.5, -344.3) and (608.2, -344.6) ..
+                    (608.8, -345.2) ..
+                    controls (609.4, -345.8) and (609.7, -346.5) .. (609.7, -347.3) --
+                    (609.7, -371.2) ..
+                    controls (609.7, -372.1) and (609.4, -372.8) .. (608.8, -373.3) ..
+                    controls (608.2, -373.9) and (607.5, -374.2) .. (606.7, -374.2) --
+                    (582.7, -374.2) ..
+                    controls (581.9, -374.2) and (581.2, -373.9) .. (580.6, -373.3) ..
+                    controls (580.1, -372.8) and (579.8, -372.1) .. (579.8, -371.2) --
+                    (579.8, -347.3) ..
+                    controls (579.8, -346.5) and (580.1, -345.8) .. (580.6, -345.2) ..
+                    controls (581.2, -344.6) and (581.9, -344.3) .. (582.7, -344.3) --
+                    cycle
+                    (583.0, -360.1) --
+                    (589.1, -366.1) --
+                    (589.1, -366.1) --
+                    (589.5, -366.5) --
+                    (590.4, -367.4) ..
+                    controls (590.7, -367.7) and (591.1, -367.9) .. (591.6, -367.9) ..
+                    controls (592.1, -367.9) and (592.6, -367.7) .. (592.9, -367.4) --
+                    (606.4, -353.8) ..
+                    controls (606.8, -353.5) and (607.0, -353.1) .. (607.0, -352.6) ..
+                    controls (607.0, -352.1) and (606.8, -351.7) .. (606.4, -351.3) ..
+                    controls (606.1, -350.9) and (605.7, -350.8) .. (605.2, -350.8) ..
+                    controls (604.7, -350.8) and (604.3, -350.9) .. (603.9, -351.3) --
+                    (591.6, -363.6) --
+                    (585.6, -357.5) ..
+                    controls (585.2, -357.2) and (584.8, -357.0) .. (584.3, -357.0) ..
+                    controls (583.8, -357.0) and (583.4, -357.2) .. (583.0, -357.5) ..
+                    controls (582.7, -357.9) and (582.5, -358.3) .. (582.5, -358.8) ..
+                    controls (582.5, -359.3) and (582.7, -359.7) .. (583.0, -360.1) --
+                    cycle;
+            \end{tikzpicture}
+        },
+        untickedBox = {
+            \begin{tikzpicture} [
+                    y=1pt, x=1pt,
+                    yscale=0.75,
+                    xscale=0.75,
+                    every node/.append style={scale=0.75},
+                    inner sep=0pt,
+                    outer sep=0pt
+                ]
+                \path[fill,shift={(0,2.8502932251968507)},scale=0.3]
+                    (582.7, -341.3) ..
+                    controls (581.7, -341.3) and (580.6, -341.6) .. (579.7, -342.1) ..
+                    controls (578.8, -342.7) and (578.1, -343.4) .. (577.6, -344.3) ..
+                    controls (577.0, -345.2) and (576.8, -346.2) .. (576.8, -347.3) --
+                    (576.8, -371.2) ..
+                    controls (576.8, -372.3) and (577.0, -373.3) .. (577.6, -374.2) ..
+                    controls (578.1, -375.1) and (578.8, -375.9) .. (579.7, -376.4) ..
+                    controls (580.6, -376.9) and (581.7, -377.2) .. (582.7, -377.2) --
+                    (606.7, -377.2) ..
+                    controls (607.8, -377.2) and (608.8, -376.9) .. (609.7, -376.4) ..
+                    controls (610.6, -375.9) and (611.3, -375.1) .. (611.9, -374.2) ..
+                    controls (612.4, -373.3) and (612.7, -372.3) .. (612.7, -371.2) --
+                    (612.7, -347.3) ..
+                    controls (612.7, -346.2) and (612.4, -345.2) .. (611.9, -344.3) ..
+                    controls (611.3, -343.4) and (610.6, -342.7) .. (609.7, -342.1) ..
+                    controls (608.8, -341.6) and (607.8, -341.3) .. (606.7, -341.3) --
+                    cycle
+                    (582.7, -344.3) -- (606.7, -344.3) ..
+                    controls (607.5, -344.3) and (608.2, -344.6) .. (608.8, -345.2) ..
+                    controls (609.4, -345.8) and (609.7, -346.5) .. (609.7, -347.3) --
+                    (609.7, -371.2) ..
+                    controls (609.7, -372.1) and (609.4, -372.8) .. (608.8, -373.3) ..
+                    controls (608.2, -373.9) and (607.5, -374.2) .. (606.7, -374.2) --
+                    (582.7, -374.2) ..
+                    controls (581.9, -374.2) and (581.2, -373.9) .. (580.6, -373.3) ..
+                    controls (580.1, -372.8) and (579.8, -372.1) .. (579.8, -371.2) --
+                    (579.8, -347.3) ..
+                    controls (579.8, -346.5) and (580.1, -345.8) .. (580.6, -345.2) ..
+                    controls (581.2, -344.6) and (581.9, -344.3) .. (582.7, -344.3) --
+                    cycle;
+            \end{tikzpicture}
+        },
+        headingOne      = \section*{#1},
+        headingTwo      = \subsection*{#1},
+        headingThree    = \subsubsection*{#1},
+        headingFour     = \paragraph*{#1},
+        headingFive     = \subparagraph*{#1},
+        headingSix      = \textbf{#1},
+        blockQuoteBegin = {\begin{ColorBox}},
+        blockQuoteEnd   = {\end{ColorBox}},
+        link            = {\href{#2}{#1}},
+        image           = {\begin{figure}[H]\centering\includegraphics[width=0.9\textwidth]{#3}\caption{#1}\end{figure}}
+    },
+}
+
+\tcbset {
+    before skip = 0.2cm,
+    after skip  = 0.5cm
+}
+
+\newtcolorbox { ColorBox } {
+    colback       = white!95!black,
+    colframe      = black!40!white,
+    sharp corners = all,
+    boxrule       = 0pt,
+    leftrule      = 4pt
+}
+
+\setCJKmainfont {Source Han Serif SC} [
+    BoldFont            = Source Han Serif SC Bold,
+    ItalicFont          = STKaiti,
+    BoldItalicFont      = STKaiti,
+    Renderer            = OpenType,
+]
+\setCJKsansfont {Source Han Sans SC} [
+    UprightFont    = *,
+    BoldFont       = * Bold,
+    ItalicFont     = * Light,
+    BoldItalicFont = *,
+    Renderer       = OpenType,
+]
+\setCJKmonofont {Source Han Sans SC} [
+    UprightFont    = *,
+    BoldFont       = * Bold,
+    ItalicFont     = STKaiti,
+    BoldItalicFont = STKaiti,
+    Renderer       = OpenType,
+]
+\setmainfont {Noto Serif} [
+    UprightFont         = * Regular,
+    BoldFont            = * Bold,
+    ItalicFont          = * Italic,
+    BoldItalicFont      = * Bold Italic,
+    SlantedFont         = * Regular,
+    BoldSlantedFont     = * Bold,
+    SlantedFeatures     = {FakeSlant},
+    BoldSlantedFeatures = {FakeSlant},
+    Renderer            = OpenType,
+]
+\setsansfont {Segoe UI} [
+    UprightFont         = *,
+    BoldFont            = * Bold,
+    ItalicFont          = * Italic,
+    BoldItalicFont      = * Bold Italic,
+    SlantedFont         = *,
+    BoldSlantedFont     = * Bold,
+    SlantedFeatures     = {FakeSlant},
+    BoldSlantedFeatures = {FakeSlant},
+    Numbers             = Proportional,
+    StylisticSet        = 19,
+    Renderer            = OpenType,
+]
+\setmonofont {JetBrainsMono NF} [
+    UprightFont         = * Regular,
+    BoldFont            = * Bold,
+    ItalicFont          = * Italic,
+    BoldItalicFont      = * Bold Italic,
+    SlantedFont         = * Regular,
+    BoldSlantedFont     = * Bold,
+    SlantedFeatures     = {FakeSlant},
+    BoldSlantedFeatures = {FakeSlant},
+    Renderer            = OpenType,
+    Contextuals = {
+        SwashOff,
+        AlternateOff,
+        WordInitialOff,
+        WordFinalOff,
+        LineFinalOff,
+        InnerOff,
+    },
+    Ligatures = {
+        RequiredOff,
+        CommonOff,
+        ContextualOff,
+        RareOff,
+        HistoricOff,
+        TeXOff,
+    },
+]
+\usepackage[colorlinks]{hyperref}
+
+\begin{document}
+\section{Markdown}
+
+大语言模型的输出在复制后常常包含 \verb|#| 或 \verb|*|，相信很多人都对此困惑不已。然而，这并不是什么乱码，也并非平台交互设计的缺陷，而是一种非常重要的格式——Markdown。
+
+Markdown 是一种轻量级标记语言，旨在创造一种易于阅读和编写的纯文本格式。而后，纯文本可以被渲染器渲染为富文本：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+# Hello *Markdown*!
+
+Hello **Markdown**!
+
+---
+
+This is a **list**:
+
+- Alice
+- Bob
+- Carol
+- Dave
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+# Hello *Markdown*!
+
+Hello **Markdown**!
+
+---
+
+This is a **list**:
+
+- Alice
+- Bob
+- Carol
+- Dave
+\end{markdown}
+    \end{minipage}
+    \caption{Markdown 示例}
+\end{figure}
+
+此外，从上面的例子也能看出，即便不渲染 Markdown，其纯文本形式依然便于阅读。因此，Markdown 非常适合撰写笔记、软件文档，也非常适合作为大语言模型的输出格式。
+
+\subsection{Markdown 的语法}
+
+在这一部分，我们讨论 Markdown 的语法。然而，Markdown 并没有统一的标准，不同的渲染器支持不同的扩展语法。我们先介绍称为 \href{https://commonmark.org/}{CommonMark} 的语法，而后会补充介绍一些渲染器在 CommonMark 上添加的扩展语法。
+
+以下的代码示例中，代码块的一行可能不足以容下实际的一行代码。对于这种情况，我们会加一个 $\hookrightarrow$ 符号表示折行；但请注意，该符号不是实际代码的一部分。此外，你也可以通过代码前的行号判断。
+
+\subsubsection{分段与分割线}
+
+Markdown 中，以空行来分割段落。
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+这是第一段。
+
+这是第二段。
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+这是第一段。
+
+这是第二段。
+\end{markdown}
+    \end{minipage}
+    \caption{Markdown}
+\end{figure}
+
+而连续的三个星号（\verb|***|）、连接号（\verb|---|）或下划线（\verb|___|）被视为分割线：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+这是分割线上面；
+
+---
+
+这是分割线下面。
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+这是分割线上面；
+
+---
+
+这是分割线下面。
+\end{markdown}
+    \end{minipage}
+    \caption{Markdown}
+\end{figure}
+
+\subsubsection{标题}
+
+Markdown 中使用井号（\verb|#|）表示标题，井号的数量代表标题的层级。在最后一个井号之后，要有一个空格。例如：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+# 一级标题
+
+## 二级标题
+
+### 三级标题
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+# 一级标题
+
+## 二级标题
+
+### 三级标题
+\end{markdown}
+    \end{minipage}
+    \caption{Markdown}
+\end{figure}
+
+\subsubsection{强调}
+
+使用不同数量的星号（\verb|*|）或下划线（\verb|_|）包裹文字，可以实现斜体、粗体或粗斜体。在标题等处也可以使用这些强调效果。例如：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+*italic* or _italic_
+
+**bold** or __bold__
+
+***italic and bold*** or ___italic and bold___
+
+# Use *italic* in title
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+*italic* or _italic_
+
+**bold** or __bold__
+
+***italic and bold*** or ___italic and bold___
+
+# Use *italic* in title
+\end{markdown}
+    \end{minipage}
+    \caption{Markdown 中的强调}
+\end{figure}
+
+以上是 CommonMark 定义的强调效果。其他渲染器可能支持更多的强调效果，例如：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+==高亮==
+
+~~删除线~~
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+==高亮==
+
+~~删除线~~
+\end{markdown}
+    \end{minipage}
+    \caption{扩展 Markdown 强调语法}
+\end{figure}
+
+\subsubsection{超链接与图片}
+
+Markdown 中，链接的表示法是方括号和圆括号：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+这是[北京大学](https://www.pku.edu.cn)
+
+这是[清华大学](https://www.tsinghua.edu.cn)
+        \end{minted}
+    \end{minipage}
+    \[ \Big\Downarrow \]
+    \begin{minipage}{\textwidth}
+\begin{markdown}
+这是[北京大学](https://www.pku.edu.cn)
+
+这是[清华大学](https://www.tsinghua.edu.cn)
+\end{markdown}
+    \end{minipage}
+    \caption{Markdown 中的链接}
+\end{figure}
+
+图片的表示法类似，只需要在前面加一个叹号：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+![北京大学校徽](pku-logo.png)
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+![北京大学校徽](pku-logo.pdf)
+\end{markdown}
+    \end{minipage}
+    \caption{Markdown 中的链接}
+\end{figure}
+
+\subsubsection{代码}
+
+Markdown 是信科人常用的文档格式，自然要支持代码的排版。
+
+行内代码使用反引号（\verb|`|）包裹：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+C++ 的 `algorithm` 库封装了常用算法。
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+C++ 的 `algorithm` 库封装了常用算法。
+\end{markdown}
+    \end{minipage}
+    \caption{行内代码}
+\end{figure}
+
+而代码块的上下由至少连续三个反引号（\verb|```|）分割。在代码块上方的 \verb|```| 后，可以指明该代码块的语言，以获得代码高亮（仅部分渲染器支持）：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+```C++
+#include <algorithm>
+#include <vector>
+#include <iostream>
+using std::vector;
+using std::ranges::sort;
+using std::cout;
+int main()
+{
+    vector v{114, 51, 4};
+    ranges::sort(vector);
+    for (auto i : v)
+        cout << i << ' ';
+    // 4 51 114
+}
+```
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+```C++
+#include <algorithm>
+#include <vector>
+#include <iostream>
+using std::vector;
+using std::ranges::sort;
+using std::cout;
+int main()
+{
+    vector v{114, 51, 4};
+    ranges::sort(v);
+    for (auto i : v)
+        cout << i << ' ';
+    // 4 51 114
+}
+```
+\end{markdown}
+    \end{minipage}
+    \caption{代码块}
+\end{figure}
+
+\subsubsection{引用块}
+
+顾名思义，引用块当然是拿来引用一些话的。在引用块中分段时，空行前仍要有 \verb|>|。
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+这是引用：
+
+> 你们啊，不要想弄个大新闻。
+>
+> 你们啊，naive！
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+这是引用：
+
+> 你们啊，不要想弄个大新闻。
+>
+> 你们啊，naive！
+\end{markdown}
+    \end{minipage}
+    \caption{引用块}
+\end{figure}
+
+引用块可以嵌套：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+> 你们啊，不要想弄个大新闻。
+>
+> > 你们啊，naive！
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+> 你们啊，不要想弄个大新闻。
+>
+> > 你们啊，naive！
+\end{markdown}
+    \end{minipage}
+    \caption{嵌套引用块}
+\end{figure}
+
+事实上，引用块是一种容器，你可以在其中使用几乎任何 Markdown 元素。例如，在引用块中使用标题、分割线和代码块：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+> ## 标题
+>
+> ---
+>
+> *Italic* and **Bold**.
+>
+> ```C
+> #include <stdio.h>
+> int main(void)
+> {
+>     printf("Hello!");
+> }
+> ```
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+> ## 标题
+>
+> ---
+>
+> *Italic* and **Bold**.
+>
+> ```C
+> #include <stdio.h>
+> int main(void)
+> {
+>     printf("Hello!");
+> }
+> ```
+\end{markdown}
+    \end{minipage}
+    \caption{引用块作为容器}
+\end{figure}
+
+\subsubsection{列表}
+
+Markdown 中有两种列表：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+这是**无序列表**。渲染后，在列表项前是一个**项目符号**：
+
+- Alice
+- Bob
+
+无序列表也可以用 `*` 或 `+`
+
+* Carol
+* Dave
+
++ Alice
++ Bob
+
+这是**有序列表**。渲染后，在列表项前是一个**编号**：
+
+1. Alice
+2. Bob
+3. Carol
+4. Dave
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+这是**无序列表**。渲染后，在列表项前是一个**项目符号**：
+
+- Alice
+- Bob
+- Carol
+- Dave
+
+无序列表也可以用 `*` 或 `+`
+
+* Carol
+* Dave
+
++ Alice
++ Bob
+
+这是**有序列表**。渲染后，在列表项前是一个**编号**：
+
+1. Alice
+2. Bob
+3. Carol
+4. Dave
+\end{markdown}
+    \end{minipage}
+    \caption{Markdown 中的列表}
+\end{figure}
+
+列表也可以有层级：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+无序列表可以嵌套：
+
+- Alice
+- Bob
+  - Carol
+  - Dave
+
+有序列表也可以嵌套：
+
+1. Alice
+2. Bob
+   1. Carol
+   2. Dave
+
+两种列表可以混合嵌套，也可以嵌套多层：
+
+1. Alice
+   - Bob
+     1. Carol
+     2. Dave
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+无序列表可以嵌套：
+
+- Alice
+- Bob
+  - Carol
+  - Dave
+
+有序列表也可以嵌套：
+
+1. Alice
+2. Bob
+   1. Carol
+   2. Dave
+
+两种列表可以混合嵌套，也可以嵌套多层：
+
+1. Alice
+   - Bob
+     1. Carol
+     2. Dave
+\end{markdown}
+    \end{minipage}
+    \caption{嵌套列表}
+\end{figure}
+
+与引用块类似，列表其实也是一种容器，你可以在其中使用几乎任何 Markdown 元素：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+- Alice
+
+  > *Alice*
+- Bob
+
+  > **Bob**
+
+1. Alice
+
+   This is `Alice`.
+2. Bob
+
+   This is *Bob*.
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+- Alice
+
+  > *Alice*
+- Bob
+
+  > **Bob**
+
+1. Alice
+
+   This is `Alice`.
+2. Bob
+
+   This is *Bob*.
+\end{markdown}
+    \end{minipage}
+    \caption{嵌套列表}
+\end{figure}
+
+一些渲染器支持待办列表扩展语法：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+- [x] 吃早饭
+- [/] 吃午饭
+- [ ] 吃晚饭
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+- [x] 吃早饭
+- [/] 吃午饭
+- [ ] 吃晚饭
+\end{markdown}
+    \end{minipage}
+    \caption{待办列表}
+\end{figure}
+
+\subsubsection{转义}
+
+在以上的语法中，可见 \verb|*|、\verb|_| 和 \verb|[| 等字符都有其特殊含义。那如果要原原本本地打出这些字符怎么办呢？在前面加一个反斜杠（\verb|\|）以转义。例如：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+*italic*
+
+\*no italic\*
+
+- 无序列表
+
+\- 一个连字符
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+*italic*
+
+\*no italic\*
+
+- 无序列表
+
+\- 一个连字符
+\end{markdown}
+    \end{minipage}
+    \caption{转义}
+\end{figure}
+
+以上便是 CommonMark 定义的语法。常见的 Markdown 渲染器还有以下的扩展语法：
+
+\subsubsection{表格}
+
+一些 Markdown 渲染器以竖线（\verb/|/）表示表格。第一行为表头，第二行为分隔符，而后面的行是数据。
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+|   PKU    |  THU   |
+|----------|--------|
+| **Good** | *Good* |
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+|   PKU    |  THU   |
+|----------|--------|
+| **Good** | *Good* |
+\end{markdown}
+    \end{minipage}
+    \caption{表格}
+\end{figure}
+
+在分隔符行，可以用冒号（\verb|:|）配置该列的对齐方式：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+| Right | Left | Center |
+|------:|:-----|:------:|
+|   12  |  12  |    12  |
+|  123  |  123 |   123  |
+|    1  |    1 |     1  |
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+| Right | Left | Center |
+|------:|:-----|:------:|
+|   12  |  12  |    12  |
+|  123  |  123 |   123  |
+|    1  |    1 |     1  |
+\end{markdown}
+    \end{minipage}
+    \caption{表格的对齐方式}
+\end{figure}
+
+\subsubsection{数学公式}
+
+一些 Markdown 渲染器支持以 LaTeX 语法书写数学公式：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+行内公式：$\sum_{i=1}^{n} i = \frac{n(n + 1)}{2}$
+
+行间公式：
+
+$$
+\sum_{i=1}^{n} i = \frac{n(n + 1)}{2}
+$$
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+行内公式：$\sum_{i=1}^{n} i = \frac{n(n + 1)}{2}$
+
+行间公式：
+
+$$
+\sum_{i=1}^{n} i = \frac{n(n + 1)}{2}
+$$
+\end{markdown}
+    \end{minipage}
+    \caption{表格的对齐方式}
+\end{figure}
+
+\subsection{\texttt{chws}*}
+
+很多 Markdown 编辑器/渲染器并非专业的排版软件，对于中文不会做标点压缩。例如，全角括号和句号的配合常常是这样：
+
+\begin{quotation}
+    ）\null 。
+\end{quotation}
+
+幸运的是，很多 Markdown 编辑器/渲染器基于 Web 技术构建，在这些平台上，如果字体支持 \verb|chws| 等特性，则可以做标点压缩：
+
+\begin{quotation}
+    ）。
+\end{quotation}
+
+为字体添加 \verb|chws| 等特性，可以使用 Google 开发的 \href{https://github.com/googlefonts/chws_tool}{\texttt{chws-tool}}，或其底层库 \href{https://github.com/kojiishi/east_asian_spacing}{\texttt{east-asian-spacing}}。
+\end{document}

@@ -1,0 +1,8 @@
+*.synctex.gz
+*.markdown.in
+*.aux
+*.log
+*.out
+_minted/
+_markdown_main/
+main.pdf
