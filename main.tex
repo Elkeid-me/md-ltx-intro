@@ -147,14 +147,12 @@
     Renderer            = OpenType,
 ]
 \setCJKsansfont {Source Han Sans SC} [
-    UprightFont    = *,
     BoldFont       = * Bold,
     ItalicFont     = * Light,
     BoldItalicFont = *,
     Renderer       = OpenType,
 ]
 \setCJKmonofont {Source Han Sans SC} [
-    UprightFont    = *,
     BoldFont       = * Bold,
     ItalicFont     = STKaiti,
     BoldItalicFont = STKaiti,
@@ -911,4 +909,164 @@ $$
 \end{quotation}
 
 为字体添加 \verb|chws| 等特性，可以使用 Google 开发的 \href{https://github.com/googlefonts/chws_tool}{\texttt{chws-tool}}，或其底层库 \href{https://github.com/kojiishi/east_asian_spacing}{\texttt{east-asian-spacing}}。
+
+\section{\LaTeX}
+
+LaTeX 是一种基于 TeX 的排版系统。可以打这样一个比方：TeX 引擎是 C++ 编译器，而 LaTeX 相当于标准库。
+
+\subsection{TeX 与东亚语言文字：简史*}
+
+一开始，TeX 系统只是高德纳为排版 TAOCP 而写的专用工具，仅支持英文。尽管后来扩展到了 8 位编码，也只是支持了一部分西方语言而已，面对浩瀚的东亚语言文字，TeX 系统仍然显得力不从心。
+
+那么 TeX 又是怎样支持东亚语言文字呢？
+
+在极早期，有日本的 Fujita TeX、NTT JTeX，台湾地区的 PuTeX，中国大陆的 CCT、天元等系统。这些系统已经消逝在历史的长河中了（并非，实际上国内有些期刊还是要 CCT）。
+
+日文社区开发了 Publishing TeX（pTeX），将适合东亚语言文字的排版算法纳入 TeX 中。pTeX 仍然使用至今。
+
+奥地利人 Werner Lemberg 为毕业论文编写了 CJK 宏包。在本世纪早期，CJK 是 LaTeX 中处理东亚语言文字的常用手段。
+
+而后，XeTeX 横空出世，带来了 Unicode 支持和 OpenType 支持。xeCJK 包依托 XeTeX 专有的特性提供了标点挤压等功能，这也是目前绝大多数中文用户的选择。
+
+LuaTeX 将 Lua 嵌入 TeX 引擎，可以使用 Lua 脚本控制 TeX 的行为。在日文社区，LuaTeX-ja 包将很多 pTeX 的算法和使用习惯引入了 LuaTeX。此外，最新的 LuaTeX 包含 HarfBuzz，完善了 OpenType 支持，称为 LuaHBTeX。
+
+与此同时，日文社区开发了 pTeX 的 Unicode 版本 upTeX。
+
+因此，目前在 LaTeX 中，可以用以下方式排版东亚语言文字：
+
+\begin{itemize}
+    \item 中文，使用 CTeX 宏包，它在 pdfLaTeX 下自动调用 CJK、在 XeLaTeX 下自动调用 xeCJK、在 LuaLaTeX 下自动调用 LuaTeX-ja，而在 upTeX 下依托引擎本身的算法。
+    \item 日文，在 Lua(La)TeX 下使用 LuaTeX-ja 宏包，或使用 (u)p(La)TeX。
+    \item 朝鲜文，在 Lua(La)TeX 下使用 LuaTeX-ko 宏包。
+\end{itemize}
+
+延伸阅读：
+
+\begin{itemize}
+    \item \href{https://tuna.moe/assets/slides/doc-ptex-ng-zh.pdf}{TeX 与汉字处理: 过去、现在、未来}
+    \item \href{https://tuna.moe/assets/slides/ctex2talk.pdf}{CTeX 2.0 : 新的开始}
+    \item \href{http://mirrors.ctan.org/macros/latex/contrib/babel-contrib/japanese/japanese.pdf}{Guide to Japanese typesetting with LaTeX}
+    \item \href{https://www.w3.org/TR/clreq/}{Requirements for Chinese Text Layout - 中文排版需求}
+\end{itemize}
+
+\subsection{LaTeX 与中文}
+
+如上文所言，在 LaTeX 中排版中文文档时，请加载 CTeX 宏包，即：
+
+\begin{enumerate}
+    \item 使用一个 CTeX 文档类，如 \verb|ctexart|、\verb|ctexbook|；
+    \item 使用任意的文档类，并使用 \verb|\usepackage{ctex}| 加载 CTeX 宏包。
+\end{enumerate}
+
+而对于 LaTeX 引擎的选择，请优先考虑 XeLaTeX 或 LuaLaTeX 这两个支持 Unicode、输出 PDF、支持 OpenType 的引擎。XeLaTeX 是绝大多数中文用户的选择；而 LuaLaTeX 提供了更强的功能（虽然大多数人用不到），但运行速度较慢。
+
+延伸阅读：
+
+\begin{itemize}
+    \item \href{https://mirrors.ctan.org/language/chinese/ctex/ctex.pdf}{CTeX 宏集手册}
+\end{itemize}
+
+\subsection{LaTeX 中的更多文字风格*}
+
+\begin{table}[H]
+    \caption{LaTeX 中的 Family、Series 与 Shape}
+    \label{tab:latex-font-styles}
+    \centering
+    \begin{tblr} {
+        colspec={ccccccc},
+        hline{1,2,3,Z},
+        vline{1,2,4,6,Z},
+        cell{1}{2} = {c = 2}{halign = c},
+        cell{1}{4} = {c = 2}{halign = c},
+        cell{1}{6} = {c = 2}{halign = c},
+    }
+        Family                  & Serif            &                           & Sans Serif                &                                    & Monospaced                                                     \\
+        \diagbox{Shape}{Series} & Regular          & Bold                      & Regular                   & Bold                               & Regular                   & Bold                               \\
+        Upright                 & Satisfy          & \textbf{Satisfy}          & \textsf{Satisfy}          & \textsf{\textbf{Satisfy}}          & \texttt{Satisfy}          & \texttt{\textbf{Satisfy}}          \\
+        Italic                  & \textit{Satisfy} & \textit{\textbf{Satisfy}} & \textit{\textsf{Satisfy}} & \textit{\textsf{\textbf{Satisfy}}} & \textit{\texttt{Satisfy}} & \textit{\texttt{\textbf{Satisfy}}} \\
+        Slanted                 & \textsl{Satisfy} & \textsl{\textbf{Satisfy}} & \textsl{\textsf{Satisfy}} & \textsl{\textsf{\textbf{Satisfy}}} & \textsl{\texttt{Satisfy}} & \textsl{\texttt{\textbf{Satisfy}}} \\
+        Small Caps              & \textsc{Satisfy} & \textsc{\textbf{Satisfy}} & \textsc{\textsf{Satisfy}} & \textsc{\textsf{\textbf{Satisfy}}} & \textsc{\texttt{Satisfy}} & \textsc{\texttt{\textbf{Satisfy}}} \\
+    \end{tblr}
+\end{table}
+
+详细介绍如下：
+
+\subsection{Family}
+
+\paragraph{Serif}
+
+衬线体，又称罗马体（Roman），在字形笔画的起始段与末端会有装饰细节部分。对于中文，衬线体被认为是宋体。
+
+在 LaTeX 中，正文默认是衬线体。在其他环境下，可以使用 \verb|\textrm{...}| 得到衬线体。
+
+\paragraph{Sans Serif}
+
+无衬线体，笔画等粗，没有装饰部分。对于中文，无衬线体被认为是等线体（黑体）。
+
+在 LaTeX 中，使用 \verb|\textsf{...}| 得到无衬线体。
+
+\paragraph{Monospaced}
+
+等宽字体，又称打字机字体，（西文部分）每个字符宽度相等。
+
+在 LaTeX 中，使用 \verb|\texttt{...}| 得到等宽字体。
+
+\subsection{Shape}
+
+\paragraph{Upright}
+
+直立体。在 LaTeX 中，正文默认是直立的。在其他环境下，可以使用 \verb|\textup{...}| 得到直立体。
+
+\paragraph{Italic}
+
+意大利体，受到手写书法的影响，意大利体的字形向右倾斜，其字母写法也接近于手写体。对于中文，意大利体被认为是楷体。
+
+在 LaTeX 中，可以使用 \verb|\textit{...}| 得到意大利体。
+
+意大利体需要设计师专门设计。例如， Segoe\footnote{Windows 的默认英文字体，也是微软雅黑的西文部分。}有意大利体，而 Aptos\footnote{Office 的新默认字体。}就没有。
+
+\paragraph{Slanted}
+
+又称 Oblique，倾斜体，类似于对直立体进行倾斜。
+
+在 LaTeX 中，可以使用 \verb|\textsl{...}| 得到倾斜体。
+
+尽管倾斜体类似于对直立体进行倾斜，但笔画粗细的细节仍需要设计师专门设计。例如，Aptos 有倾斜体，而 Segoe 就没有。
+
+当字体不包含专门设计的倾斜体时，可对直立体倾斜得到伪倾斜体（Fake Slanted）。表 \ref{tab:latex-font-styles} 中的倾斜体即是这么制作的。
+
+\paragraph{Small Caps}
+
+小型大写字母，当实际文本为小写字母时，字形为小一号的大写字母。
+
+在 LaTeX 中，可以使用 \verb|\textsc{...}| 得到倾斜体。
+
+在 LaTeX 中，小型大写字母需要专门设计的字体。如果字体不支持，则字形仍呈现为小写字母。表 \ref{tab:latex-font-styles} 中，Monospaced 列对应的 Small Caps 即是如此。
+
+\subsubsection{Series}
+
+\paragraph{Regular}
+
+常规字重\footnote{在 LaTeX 系统中又称为 Medium，但在现代字体通行的命名中，Medium 介于 Regular 和 Bold 之间。}。
+
+在 LaTeX 中，正文默认是 Regular 字重。在其他环境下，可以使用 \verb|\textmd{...}| 得到 Regular 字重。
+
+\paragraph{Bold}
+
+粗体。在 LaTeX 中，可以使用 \verb|\textbf{...}| 得到倾斜体。
+
+粗体需要设计师专门设计。一般来说，西文字体都会包含专门设计的粗体，而东亚语言文字字体较为罕见。例如，Windows 环境中使用 CTeX 宏集，正文（中易宋体）的粗体实际上是中易黑体，而不是对宋体加粗。
+
+% \textbf{思源宋体}和\textbf{\textsf{思源黑体}}包含专门设计的粗体，且思源系列字体字符集较全，东亚语言文字有统一的风格，推荐使用。
+
+当字体不包含专门设计的粗体时，也可以使用伪粗体。
+
+接下来，我们将讨论如何配置这些字体。
+
+\subsection{在 LaTeX 中自定义字体}
+
+“现代的”TeX 引擎\footnote{这里指 XeTeX 和 LuaTeX。}支持 OpenType 字体，且可以直接从系统安装的字体中选取。
+
+在 LaTeX 中自定义
+\subsection{LaTeX 中的 Markdown*}
 \end{document}
