@@ -291,7 +291,7 @@ Markdown 中，以空行来分割段落。
     \caption{Markdown}
 \end{figure}
 
-而连续的三个星号（\verb|***|）、连接号（\verb|---|）或下划线（\verb|___|）被视为分割线：
+而多于三个星号（\verb|***|）、连接号（\verb|---|）或下划线（\verb|___|）被视为分割线。其中可以包含空格：
 
 \begin{figure}[H]
     \centering
@@ -302,6 +302,10 @@ Markdown 中，以空行来分割段落。
 ---
 
 这是分割线下面。
+
+这也是分割线：
+
+- - --
         \end{minted}
     \end{minipage}
     \, $\Longrightarrow$ \,
@@ -312,6 +316,10 @@ Markdown 中，以空行来分割段落。
 ---
 
 这是分割线下面。
+
+这也是分割线：
+
+- - --
 \end{markdown}
     \end{minipage}
     \caption{Markdown}
@@ -463,6 +471,24 @@ C++ 的 `algorithm` 库封装了常用算法。
     \caption{行内代码}
 \end{figure}
 
+当想要展示的代码也包含反引号时，可以使用更多反引号包裹：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+Verilog `` `default_nettype none `` 会禁用隐式网络声明。
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+Verilog `` `default_nettype none `` 会禁用隐式网络声明。
+\end{markdown}
+    \end{minipage}
+    \caption{包含 \texttt{`} 的行内代码}
+\end{figure}
+
 而代码块的上下由至少连续三个反引号（\verb|```|）分割。在代码块上方的 \verb|```| 后，可以指明该代码块的语言，以获得代码高亮（仅部分渲染器支持）：
 
 \begin{figure}[H]
@@ -509,6 +535,28 @@ int main()
 \end{markdown}
     \end{minipage}
     \caption{代码块}
+\end{figure}
+
+类似行内代码，当要展示的行间代码也包含连续三个或更多反引号时，上下可以用更多反引号包裹：
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \begin{minted}[linenos, frame=single, breaklines, breakanywhere]{text}
+`````
+````
+`````
+        \end{minted}
+    \end{minipage}
+    \, $\Longrightarrow$ \,
+    \begin{minipage}{0.45\textwidth}
+\begin{markdown}
+`````
+````
+`````
+\end{markdown}
+    \end{minipage}
+    \caption{包含连续 \texttt{`} 的代码块}
 \end{figure}
 
 \subsubsection{引用块}
@@ -929,11 +977,11 @@ LaTeX 是一种基于 TeX 的排版系统。可以打这样一个比方：TeX �
 
 奥地利人 Werner Lemberg 为毕业论文编写了 CJK 宏包。在本世纪早期，CJK 是 LaTeX 中处理东亚语言文字的常用手段。
 
-而后，XeTeX 横空出世，带来了 Unicode 支持和 OpenType 支持。xeCJK 包依托 XeTeX 专有的特性提供了标点挤压等功能，这也是目前绝大多数中文用户的选择。
+而后，XeTeX 横空出世，带来了 Unicode 支持和 OpenType 支持。xeCJK 包依托 XeTeX 专有的特性提供了标点挤压等功能，这也是目前绝大多数中文用户的选择。但 XeTeX 自 2020 年后没有活跃更新。
 
-LuaTeX 将 Lua 嵌入 TeX 引擎，可以使用 Lua 脚本控制 TeX 的行为。在日文社区，LuaTeX-ja 包将很多 pTeX 的算法和使用习惯引入了 LuaTeX。此外，最新的 LuaTeX 包含 HarfBuzz，完善了 OpenType 支持，称为 LuaHBTeX。
+LuaTeX 将 Lua 嵌入 TeX 引擎，可以使用 Lua 脚本控制 TeX 的行为。在日文社区，LuaTeX-ja 包将很多 pTeX 的算法和使用习惯引入了 LuaTeX。此外，最新的 LuaTeX 包含 HarfBuzz，完善了 OpenType 支持，称为 LuaHBTeX。LuaTeX 仍在活跃更新。
 
-与此同时，日文社区开发了 pTeX 的 Unicode 版本 upTeX。
+与此同时，日文社区开发了 pTeX 的 Unicode 版本 upTeX。upTeX 也在活跃更新。
 
 因此，目前在 LaTeX 中，可以用以下方式排版东亚语言文字：
 
